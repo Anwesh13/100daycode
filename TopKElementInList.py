@@ -1,3 +1,5 @@
+import heapq
+from collections import Counter
 from typing import List
 
 
@@ -17,3 +19,10 @@ class Solution:
                 res.append(num)
                 if len(res) == k:
                     return res
+
+    # Using Heap
+    class Solution:
+        def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+            count = Counter(nums)
+
+            return heapq.nlargest(k, count.keys(), key=count.get)
